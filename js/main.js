@@ -48,8 +48,12 @@ const infoDatos = [
 const getUsuario = (nombre) => {
     const usuario = infoDatos.find((user) => user.nombre === nombre)
     return new Promise((resolve, reject) => {
-        if (usuario) resolve(usuario);
+        setTimeout(() => {
+            if (usuario) resolve(usuario);
         else reject(`No hay usuario con este dato ${nombre} no existe`);
+  console.log("Retrasado por 1 segundo.");
+}, "1000");
+        
     });
 };
 
