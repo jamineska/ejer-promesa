@@ -28,20 +28,6 @@ const infoDatos = [
         nombre: "Camila", email: "camilaP@mipaginaweb.com",
 }];
 
-//activamos el boton y probamos se funciona
-boton.addEventListener("click", function (event) {
-    const usuario = "Camilaparker"
-    getUsuario(usuario)
-        .then((usuario) => {
-            info.textContent =
-                `El usuario ${usuario.nombre} con el email ${usuario.email}`
-
-        })
-        .catch((error) => {
-            info.textContent = error;
-        });
-}
-);
 
 //probando promesa
 
@@ -56,6 +42,21 @@ const getUsuario = (nombre) => {
         
     });
 };
+
+//activamos el boton y probamos se funciona y resolver promesa
+boton.addEventListener("click", function (event) {
+    const usuario = "Camilaparker"
+    getUsuario(usuario)
+        .then((usuario) => {
+            info.textContent =
+                `El usuario ${usuario.nombre} con el email ${usuario.email}`
+
+        })
+        .catch((error) => {
+            info.textContent = error;
+        });
+}
+);
 
 
 
