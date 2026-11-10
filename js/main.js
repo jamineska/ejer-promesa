@@ -1,6 +1,3 @@
-
-
-
 /* Ejercicio: Simulador de Consulta a API
 
 Imagina que estás creando una página web que consulta una API ficticia para obtener datos sobre usuarios. Tu tarea es crear una simulación de consulta a una API utilizando promesas en JavaScript. La página debe permitir al usuario hacer clic en un botón para obtener la información del usuario, y mostrar los datos en la página.
@@ -25,7 +22,13 @@ const usuario = document.querySelector("#datosUsuario");
 const boton = document.querySelector(".boton button");
 const info = document.querySelector(".informacion");
 
+//creamos la variable
+const infoDatos = [
+    {
+        nombre: "Camila", email: "camilaP@mipaginaweb.com",
+}];
 
+//activamos el boton y probamos se funciona
 boton.addEventListener("click", function (event) {
     const usuario = "Camilaparker"
     getUsuario(usuario)
@@ -40,19 +43,16 @@ boton.addEventListener("click", function (event) {
 }
 );
 
-const infoDatos = [
-    {
-        nombre: "Camila", email: "camilaP@mipaginaweb.com",
-    }];
+//probando promesa
 
 const getUsuario = (nombre) => {
     const usuario = infoDatos.find((user) => user.nombre === nombre)
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (usuario) resolve(usuario);
-        else reject(`No hay usuario con este dato ${nombre} no existe`);
-  console.log("Retrasado por 1 segundo.");
-}, "1000");
+            else reject(`No hay usuario con este dato ${nombre} no existe`);
+            console.log("Retrasado por 1 segundo.");
+        }, "1000");
         
     });
 };
