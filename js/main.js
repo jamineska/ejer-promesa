@@ -37,20 +37,18 @@ const getUsuario = (nombre) => {
         setTimeout(() => {
             if (usuario) resolve(usuario);
             else reject(`No hay usuario con este dato ${nombre} no existe`);
-            console.log("Retrasado por 1 segundo.");
-        }, "1000");
+            console.log("Retrasado por 2 segundo.");
+        }, 2000);
         
     });
 };
 
 //activamos el boton y probamos se funciona y resolver promesa
 boton.addEventListener("click", function (event) {
-    const usuario = "Camilaparker"
+    const usuario = "Camila"
     getUsuario(usuario)
         .then((usuario) => {
-            info.textContent =
-                `El usuario ${usuario.nombre} con el email ${usuario.email}`
-
+            pintarUsuario(usuario.nombre, usuario.email)
         })
         .catch((error) => {
             info.textContent = error;
@@ -59,4 +57,6 @@ boton.addEventListener("click", function (event) {
 );
 
 
-
+const pintarUsuario = (nombre, email)=> {
+info.textContent =`El usuario ${nombre} con el email ${email}`
+}
